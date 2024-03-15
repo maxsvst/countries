@@ -1,0 +1,16 @@
+.headerWrapper {
+  background: white;
+  margin: 0 -100px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  padding: 0 100px;
+}
+
+.headerTitle {
+  font-weight: bold;
+}
