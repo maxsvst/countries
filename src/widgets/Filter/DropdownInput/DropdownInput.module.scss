@@ -1,0 +1,19 @@
+.filterButton {
+  border: 0;
+  background-color: white;
+  padding: 20px 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 0 3px #fbfbfb;
+  transition: transform 0.3s;
+  backface-visibility: hidden;
+}
+
+.filterButton:hover {
+  transform: scale(1.02);
+}
+
+@media (max-width: 375px) {
+  .filterButton {
+    padding: 20px 20px;
+  }
+}

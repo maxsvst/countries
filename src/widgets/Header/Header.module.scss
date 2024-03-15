@@ -1,6 +1,10 @@
 .headerWrapper {
+  position: sticky;
+  top: 0;
+  z-index: 4;
   background: white;
   margin: 0 -100px;
+  box-shadow: 0 0 0 3px #fbfbfb;
 }
 
 .header {
@@ -12,5 +16,53 @@
 }
 
 .headerTitle {
+  font-size: 20px;
   font-weight: bold;
+}
+
+.upButton {
+  border: none;
+  background-color: #ffffff;
+}
+
+.upButton,
+.themeWrapper {
+  padding: 10px;
+  border-radius: 10px;
+  transition: background-color 1s;
+}
+
+.themeWrapper:hover,
+.upButton:hover {
+  cursor: pointer;
+  user-select: none;
+  background-color: #ececec;
+}
+
+.headerTeme {
+  font-size: 14px;
+}
+
+@media (max-width: 590px) {
+  .header {
+    flex-direction: column;
+    height: 100px;
+    padding-bottom: 10px;
+  }
+
+  .headerTitle {
+    transition: margin-top 1s;
+    margin-top: 20px;
+  }
+
+  .upButton {
+    display: none;
+  }
+}
+
+@media (max-width: 450px) {
+  .headerTitle {
+    transition: font-size 0.5s;
+    font-size: 14px;
+  }
 }

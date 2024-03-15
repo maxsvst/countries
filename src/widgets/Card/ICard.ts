@@ -5,3 +5,8 @@ export interface ICard {
   capital: string;
   region: string;
 }
+
+export interface ICountryInfo {
+  property: string;
+  value: string | number;
+}

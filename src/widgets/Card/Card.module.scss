@@ -3,6 +3,12 @@
   flex-direction: column;
   background-color: white;
   border-radius: 5px;
+  box-shadow: 3px 3px 3px 3px #fbfbfb;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.02);
 }
 
 .flag {
@@ -29,4 +35,8 @@
 
 .infoProperty {
   font-weight: bold;
+}
+
+.infoProperty::after {
+  content: ":";
 }

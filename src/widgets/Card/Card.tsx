@@ -1,6 +1,6 @@
-import React, { useState, useLayoutEffect } from "react";
+import React from "react";
 import style from "./Card.module.scss";
-import { ICard } from "./ICard";
+import { ICard, ICountryInfo } from "./ICard";
 
 export default function Card({
   name,
@@ -9,20 +9,11 @@ export default function Card({
   capital,
   region,
 }: ICard) {
-  const [countriesList, setCountriesList] = useState<any>([]);
-
-  useLayoutEffect(() => {
-    fetch("https://restcountries.com/v3.1/all")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setCountriesList(data);
-      })
-      .catch((e) => console.log(e));
-  }, []);
-
-  console.log(countriesList);
+  const countryInfo = [
+    { property: "Population", value: population },
+    { property: "Region", value: region },
+    { property: "Capital", value: capital },
+  ];
 
   return (
     <div className={style.card} key={name}>
@@ -30,18 +21,13 @@ export default function Card({
       <div className={style.cardDescription}>
         <span>{name}</span>
         <div className={style.contryInfo}>
-          <div>
-            <span className={style.infoProperty}>Population:</span>
-            <span className={style.infoValue}> {population}</span>
-          </div>
-          <div>
-            <span className={style.infoProperty}>Region:</span>
-            <span className={style.infoValue}> {region}</span>
-          </div>
-          <div>
-            <span className={style.infoProperty}>Capital:</span>
-            <span className={style.infoValue}> {capital}</span>
-          </div>
+          {countryInfo.map(({ property, value }: ICountryInfo) => (
+            // TODO: Добавить уникальный ключ
+            <div key={property}>
+              <span className={style.infoProperty}>{property}</span>
+              <span className={style.infoValue}> {value}</span>
+            </div>
+          ))}
         </div>
       </div>
     </div>
