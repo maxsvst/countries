@@ -5,26 +5,38 @@ import React, {
   ChangeEvent,
 } from "react";
 import style from "./Input.module.scss";
+import { useAppDispatch } from "../../../app/hooks";
+import { useGetCountryByNameQuery } from "../../../app/country";
+import { selectCountryName, setCountryName } from "../../../app/countrySlice";
+import { useSelector } from "react-redux";
+// import {
+//   clearCountriesState,
+//   getFilteredByNameCountries,
+// } from "../../../app/countriesSlice";
 
 export default function Input() {
-  const [inputState, setInputState] = useState<string>("");
-  const debouncedInputState = useDeferredValue(inputState); // Пока такой debounce
+  const dispatch = useAppDispatch();
+  const inputValue = useSelector(selectCountryName);
+  // const [inputState, setInputState] = useState<string>("");
+  // const {} = useGetCountryByNameQuery(inputState);
+  // const debouncedInputState = useDeferredValue(inputState); // Пока такой debounce
 
-  useEffect(() => {
-    !!debouncedInputState.trim() &&
-      fetch(`https://restcountries.com/v3.1/name/${debouncedInputState}`)
-        .then((res) => res.json())
-        .then((data) => console.log(data));
-  }, [debouncedInputState]);
+  // useEffect(() => {
+  //   !!debouncedInputState.trim() &&
+  //     dispatch(getFilteredByNameCountries(debouncedInputState));
+  //   return () => {
+  //     dispatch(clearCountriesState());
+  //   };
+  // }, [dispatch, debouncedInputState]);
 
   const handleSearchCountryInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setInputState(e.target.value);
+    dispatch(setCountryName(e.target.value));
   };
 
   return (
     <input
       className={style.input}
-      value={inputState}
+      value={inputValue}
       onChange={handleSearchCountryInputChange}
       placeholder="Search for the country..."
     />
