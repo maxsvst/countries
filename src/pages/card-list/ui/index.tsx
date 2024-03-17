@@ -1,31 +1,28 @@
 import React from "react";
 import style from "./styles.module.scss";
-import Card from "../../entities/card";
+import Card from "../../../entities/card/ui";
 import {
   useGetAllCountriesQuery,
   useGetCountryByNameQuery,
   useGetCountryByRegionQuery,
-} from "../../app/country";
+} from "../../../app/providers/StoreProvider/api/countryApi";
 import { useSelector } from "react-redux";
-import { selectCountryName, selectCountryRegion } from "../../app/countrySlice";
-import { Regions } from "../../features/region-country-filter";
-import Filter from "../../widgets/filter";
-import EmptyData from "../../shared/ui/emty-data";
-
-export interface ICountry {
-  region: Regions;
-  flags: { svg: string };
-  capital: string;
-  name: { common: string };
-  population: number;
-}
+import {
+  selectCountryName,
+  selectCountryRegion,
+} from "../../../app/providers/StoreProvider/config/countrySlice";
+import Filter from "../../../widgets/filter";
+import EmptyData from "../../../shared/ui/empty-data";
+import { ICountry } from "../types";
 
 export default function CardsList() {
   const countryName = useSelector(selectCountryName);
   const countryRegion = useSelector(selectCountryRegion);
 
-  const { data: allCountries = [], isError: allError } =
-    useGetAllCountriesQuery();
+  const {
+    data: unfilteredCountries = [],
+    isError: unfilteredError,
+  } = useGetAllCountriesQuery(); // TODO: Что-то сделать
   const { data: filteredByNameCountries = [], isError: filterByNameError } =
     useGetCountryByNameQuery(countryName, { skip: !countryName.trim() });
   const { data: filteredByRegionCountries = [], isError: filterByRegionError } =
@@ -37,7 +34,7 @@ export default function CardsList() {
     } else if (!!countryRegion) {
       return { data: filteredByRegionCountries, isError: filterByRegionError };
     } else {
-      return { data: allCountries, isError: allError };
+      return { data: unfilteredCountries, isError: unfilteredError };
     }
   };
 
@@ -49,11 +46,11 @@ export default function CardsList() {
   return (
     <>
       <Filter />
-      <div className={cardsStyle}>
-        {currentData().isError ? (
-          <EmptyData />
-        ) : (
-          currentData().data.map((country: ICountry) => (
+      {currentData().isError ? (
+        <EmptyData />
+      ) : (
+        <div className={cardsStyle}>
+          {currentData().data.map((country: ICountry) => (
             <Card
               region={country.region}
               flag={country.flags.svg}
@@ -62,9 +59,9 @@ export default function CardsList() {
               population={country.population}
               key={country.name.common}
             />
-          ))
-        )}
-      </div>
+          ))}
+        </div>
+      )}
     </>
   );
 }

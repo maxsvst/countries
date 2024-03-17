@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "./store";
-import { Regions } from "../features/region-country-filter";
+import { Regions } from "../../../../features/region-country-filter/types";
 
 export interface ICountriesState {
   countryName: string;

@@ -9,7 +9,7 @@ export default function Header() {
       <div className={style.headerWrapper}>
         <div className={style.header}>
           <span className={style.headerTitle}>Where in the world?</span>
-          <SwitchThemeButton />
+          {/* <SwitchThemeButton /> */}
           <ScrollToTopButton />
         </div>
       </div>

@@ -1,5 +1,5 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
-import { countryApi } from "./country";
+import { countryApi } from "../api/countryApi";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { countriesSlice } from "./countrySlice";
 
