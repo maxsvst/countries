@@ -1,31 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Menu, Dropdown } from "antd";
-import { Regions } from "./IDropdownInput";
-import style from "./DropdownInput.module.scss";
-import { useAppDispatch } from "../../../app/hooks";
-import { useGetCountryByRegionQuery } from "../../../app/country";
+import style from "./styles.module.scss";
+import { useAppDispatch } from "../../app/hooks";
 import {
   selectCountryRegion,
+  setCountryName,
   setCountryRegion,
-} from "../../../app/countrySlice";
+} from "../../app/countrySlice";
 import { useSelector } from "react-redux";
-// import {
-//   clearCountriesState,
-//   getFilteredByRegionCountries,
-// } from "../../../app/countriesSlice";
+
+export enum Regions {
+  Africa = "Africa",
+  America = "America",
+  Asia = "Asia",
+  Europe = "Europe",
+  Oceania = "Oceania",
+}
 
 export default function DropdownInput() {
-  // const [currentRegion, setCurrentregion] = useState<Regions | null>(null);
-
   const dispatch = useAppDispatch();
   const currentRegion = useSelector(selectCountryRegion);
-
-  // useEffect(() => {
-  //   !!currentRegion && dispatch(getFilteredByRegionCountries(currentRegion));
-  //   return () => {
-  //     dispatch(clearCountriesState());
-  //   };
-  // }, [dispatch, currentRegion]);
 
   const highlightCurrentRegion = (region: Regions) => {
     return currentRegion === region
@@ -33,35 +27,45 @@ export default function DropdownInput() {
       : { fontWeight: "initial" };
   };
 
+  const menuItemClickHandler = (region: Regions) => {
+    dispatch(setCountryRegion(region));
+    dispatch(setCountryName(""));
+  };
+
   const menu = (
     <Menu>
       <Menu.Item
+        key={Regions.Africa}
         style={highlightCurrentRegion(Regions.Africa)}
-        onClick={() => dispatch(setCountryRegion(Regions.Africa))}
+        onClick={() => menuItemClickHandler(Regions.Africa)}
       >
         Africa
       </Menu.Item>
       <Menu.Item
+        key={Regions.America}
         style={highlightCurrentRegion(Regions.America)}
-        onClick={() => dispatch(setCountryRegion(Regions.America))}
+        onClick={() => menuItemClickHandler(Regions.America)}
       >
         America
       </Menu.Item>
       <Menu.Item
+        key={Regions.Asia}
         style={highlightCurrentRegion(Regions.Asia)}
-        onClick={() => dispatch(setCountryRegion(Regions.Asia))}
+        onClick={() => menuItemClickHandler(Regions.Asia)}
       >
         Asia
       </Menu.Item>
       <Menu.Item
+        key={Regions.Europe}
         style={highlightCurrentRegion(Regions.Europe)}
-        onClick={() => dispatch(setCountryRegion(Regions.Europe))}
+        onClick={() => menuItemClickHandler(Regions.Europe)}
       >
         Europe
       </Menu.Item>
       <Menu.Item
+        key={Regions.Oceania}
         style={highlightCurrentRegion(Regions.Oceania)}
-        onClick={() => dispatch(setCountryRegion(Regions.Oceania))}
+        onClick={() => menuItemClickHandler(Regions.Oceania)}
       >
         Oceania
       </Menu.Item>

@@ -1,0 +1,15 @@
+.themeWrapper {
+  padding: 10px;
+  border-radius: 10px;
+  transition: background-color 1s;
+}
+
+.themeWrapper:hover {
+  cursor: pointer;
+  user-select: none;
+  background: #ececec;
+}
+
+.headerTeme {
+  font-size: 14px;
+}

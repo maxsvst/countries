@@ -20,29 +20,6 @@
   font-weight: bold;
 }
 
-.upButton {
-  border: none;
-  background: #ffffff;
-}
-
-.upButton,
-.themeWrapper {
-  padding: 10px;
-  border-radius: 10px;
-  transition: background-color 1s;
-}
-
-.themeWrapper:hover,
-.upButton:hover {
-  cursor: pointer;
-  user-select: none;
-  background: #ececec;
-}
-
-.headerTeme {
-  font-size: 14px;
-}
-
 @media (max-width: 590px) {
   .header {
     flex-direction: column;
@@ -53,10 +30,6 @@
   .headerTitle {
     transition: margin-top 1s;
     margin-top: 20px;
-  }
-
-  .upButton {
-    display: none;
   }
 }
 

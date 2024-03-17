@@ -1,8 +1,9 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { Regions } from "../widgets/Filter/DropdownInput/IDropdownInput";
+import { API_URL } from "../shared/config";
+import { Regions } from "../features/region-country-filter";
 
 export const countryApi = createApi({
-  baseQuery: fetchBaseQuery({ baseUrl: "https://restcountries.com/v3.1/" }),
+  baseQuery: fetchBaseQuery({ baseUrl: API_URL }),
   tagTypes: [],
   endpoints: (builder) => ({
     getAllCountries: builder.query({

@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "./store";
-import { Regions } from "../widgets/Filter/DropdownInput/IDropdownInput";
+import { Regions } from "../features/region-country-filter";
 
 export interface ICountriesState {
   countryName: string;
@@ -21,7 +21,7 @@ export const countriesSlice = createSlice({
     },
     setCountryRegion: (
       state: ICountriesState,
-      action: PayloadAction<Regions>
+      action: PayloadAction<Regions | null>
     ) => {
       state.countryRegion = action.payload;
     },

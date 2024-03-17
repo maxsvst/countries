@@ -1,0 +1,19 @@
+.upButton {
+  border: none;
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  transition: background-color 1s;
+}
+
+.upButton:hover {
+  cursor: pointer;
+  user-select: none;
+  background: #ececec;
+}
+
+@media (max-width: 590px) {
+  .upButton {
+    display: none;
+  }
+}

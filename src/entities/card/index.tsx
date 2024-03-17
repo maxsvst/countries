@@ -1,6 +1,21 @@
 import React from "react";
-import style from "./Card.module.scss";
-import { ICard, ICountryInfo } from "./ICard";
+import style from "./styles.module.scss";
+import { Regions } from "../../features/region-country-filter";
+
+export interface ICard {
+  name: string;
+  flag: string;
+  population: number;
+  capital: string;
+  region: Regions;
+}
+
+export type CountryInfoValue = number | string | Regions;
+
+export interface ICountryInfo {
+  property: string;
+  value: CountryInfoValue;
+}
 
 export default function Card({
   name,
@@ -22,7 +37,6 @@ export default function Card({
         <span>{name}</span>
         <div className={style.contryInfo}>
           {countryInfo.map(({ property, value }: ICountryInfo) => (
-            // TODO: Добавить уникальный ключ
             <div key={property}>
               <span className={style.infoProperty}>{property}</span>
               <span className={style.infoValue}> {value}</span>
