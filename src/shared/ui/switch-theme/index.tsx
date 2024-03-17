@@ -9,9 +9,11 @@ export default function SwitchThemeButton() {
     theme === "Light" ? setTheme("Dark") : setTheme("Light");
   };
 
+  const themeButtonText = theme === "Light" ? "Dark" : "Light";
+
   return (
     <div onClick={() => handleTheme()} className={style.themeWrapper}>
-      <span className={style.headerTeme}>{theme} mode</span>
+      <span className={style.headerTeme}>{themeButtonText} mode</span>
     </div>
   );
 }
