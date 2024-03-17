@@ -14,7 +14,7 @@ export default function Card({
     <div className={style.card} key={name}>
       <img src={flag} className={style.flag} alt="flag" />
       <div className={style.cardDescription}>
-        <span>{name}</span>
+        <span className={style.contryName}>{name}</span>
         <div className={style.contryInfo}>
           {countryInfo({ population, capital, region }).map(
             ({ property, value }: ICountryInfo) => (

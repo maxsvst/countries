@@ -1,11 +1,12 @@
 .input {
-  transition: width 1s;
+  transition: width 1s, background-color 0.5s ease-out;
   width: 25vw;
   border: 2px;
   border-radius: 10px;
   padding: 20px;
-  box-shadow: 0 0 0 3px #fbfbfb;
-  font-family: 'Montserrat';
+  box-shadow: 0 0 0 2px var(--shadow-color);
+  background: var(--header-color);
+  color: var(--font-color);
 }
 
 .input:focus-visible {
@@ -13,8 +14,7 @@
 }
 
 .input::placeholder {
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  font-family: "Montserrat";
 }
 
 @media (max-width: 590px) {

@@ -7,9 +7,10 @@
 .themeWrapper:hover {
   cursor: pointer;
   user-select: none;
-  background: #ececec;
+  background: var(--hover-color);
 }
 
 .headerTeme {
   font-size: 14px;
+  color: var(--font-color);
 }

@@ -1,0 +1,34 @@
+@font-face {
+  font-family: "Montserrat";
+  src: url("https://fonts.googleapis.com/css?family=Montserrat");
+}
+
+html[data-theme="Light"] {
+  --header-color: white;
+  --font-color: black;
+  --background-color: #fafafa;
+  --shadow-color: #fbfbfb;
+  --hover-color: #ececec;
+}
+
+html[data-theme="Dark"] {
+  --header-color: black;
+  --font-color: white;
+  --background-color: #1d1d1d;
+  --shadow-color: #0f0f0f;
+  --hover-color: #1d1d1d;
+}
+
+body {
+  margin: 0;
+  background: var(--background-color);
+  transition: background-color 0.5s ease-out;
+  font-family: "Montserrat", "Roboto";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}

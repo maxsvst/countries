@@ -1,7 +1,10 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
 import style from "./styles.module.scss";
 import { useAppDispatch } from "../../../app/providers/StoreProvider/hooks/hooks";
-import { setCountryName, setCountryRegion } from "../../../app/providers/StoreProvider/config/countrySlice";
+import {
+  setCountryName,
+  setCountryRegion,
+} from "../../../app/providers/StoreProvider/config/countrySlice";
 import { useDebounce } from "../hooks/useDebounce";
 
 export default function Input() {

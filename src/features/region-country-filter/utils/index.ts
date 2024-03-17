@@ -5,8 +5,14 @@ export const highlightCurrentRegion = (
   region: Regions
 ) => {
   return currentRegion === region
-    ? { fontWeight: "bold", fontFamily: "Montserrat" }
-    : { fontWeight: "initial", fontFamily: "Montserrat" };
+    ? {
+        fontWeight: "bold",
+        fontFamily: "Montserrat",
+      }
+    : {
+        fontWeight: "initial",
+        fontFamily: "Montserrat",
+      };
 };
 
 export const filterDropdownText = (currentRegion: Regions | null): string =>

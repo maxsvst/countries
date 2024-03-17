@@ -2,9 +2,10 @@
   position: sticky;
   top: 0;
   z-index: 4;
-  background: white;
+  background: var(--header-color);
   margin: 0 -100px;
-  box-shadow: 0 0 0 3px #fbfbfb;
+  box-shadow: 0 0 0 2px var(--shadow-color);
+  transition: background-color 0.5s ease-out;
 }
 
 .header {
@@ -19,6 +20,7 @@
   font-size: 20px;
   font-weight: bold;
   user-select: none;
+  color: var(--font-color);
   cursor: default;
 }
 

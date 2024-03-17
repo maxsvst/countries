@@ -10,6 +10,7 @@ import {
 } from "../../../app/providers/StoreProvider/config/countrySlice";
 import { highlightCurrentRegion } from "../../../features/region-country-filter/utils";
 import { useSelector } from "react-redux";
+import style from "./styles.module.scss";
 
 export default function MenuItems() {
   const dispatch = useAppDispatch();
@@ -25,6 +26,7 @@ export default function MenuItems() {
       {REGIONS.map((region: Regions) => (
         <Menu.Item
           key={region}
+          className={style.menuItem}
           style={highlightCurrentRegion(currentRegion, region)}
           onClick={() => menuItemClickHandler(region)}
         >
