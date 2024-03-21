@@ -1,13 +1,16 @@
 import React from "react";
-import Cards from "../pages/card-list/ui";
-import Header from "../widgets/header";
+
+import { CountryListPage } from "@/pages/Home";
+
+import { Header } from "../widgets/Header";
+
 import style from "./styles.module.scss";
 
 export default function App() {
   return (
     <div className={style.wrapper}>
       <Header />
-      <Cards />
+      <CountryListPage />
     </div>
   );
 }
