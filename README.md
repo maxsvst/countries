@@ -7,3 +7,6 @@
 При проектировании архитектуры придерживался методологии Feature-Sliced Design, CI/CD реализован с помощью GitHub Actions.
 
 Стек проекта: TypeScript (Utility Types), React, Redux-toolkit, RTK Query, SCSS (flex, grid, псевдоклассы, transition), CSS-modules
+
+![image](https://github.com/user-attachments/assets/c3715d8a-497f-4864-9e42-ffa38b7b07ee)
+
